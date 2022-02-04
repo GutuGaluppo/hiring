@@ -1,6 +1,6 @@
 import "./Table.css";
 import { useEffect, useState } from "react";
-import useFetchCities from "../query/useFetchCities";
+import {useFetchCities} from "../query/useFetchCities";
 
 type Props = {
 	filters: string | null;
@@ -8,7 +8,7 @@ type Props = {
 const PAGE_SIZE = 15;
 
 
-export const Table = ({ filters }: Props) => {
+const Table = ({ filters }: Props) => {
 	const [page, setPage] = useState(0);
 
 	const { data, isLoading } = useFetchCities(page, PAGE_SIZE, filters);
@@ -50,7 +50,7 @@ export const Table = ({ filters }: Props) => {
 							<button onClick={() => setPage(page - 1)} disabled={page === 0}>
 								&lt; Previous
 							</button>
-							<button onClick={() => setPage(page + 1)} disabled={data?.length === 0}>
+							<button onClick={() => setPage(page + 1)} disabled={(data?.length ?? 0) < PAGE_SIZE}>
 								Next &gt;
 							</button>
 						</td>
@@ -60,3 +60,5 @@ export const Table = ({ filters }: Props) => {
 		</div>
 	);
 };
+
+export default Table;
