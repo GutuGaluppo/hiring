@@ -18,7 +18,7 @@ const getCities = async (page: number, limit: number, country: string | null) =>
 		});
 };
 
-export default function useFetchCities(page: number, limit: number, country: string | null) {
+export function useFetchCities(page: number, limit: number, country: string | null) {
 	return useQuery<City[]>(
 		["cities", page, limit, country],
 		() => getCities(page, limit, country),

@@ -6,7 +6,7 @@ type Props = {
 	onFilterByCountry: (country: string | null) => void;
 }
 
-export const Sidebar = ({ onFilterByCountry }: Props) => {
+const Sidebar = ({ onFilterByCountry }: Props) => {
 	const [countries, setCountries] = useState<Country[]>([]);
 	const [isLoading, setLoading] = useState(true);
 
@@ -31,7 +31,7 @@ export const Sidebar = ({ onFilterByCountry }: Props) => {
 	if (isLoading) return <h1>Loading...</h1>
 
 	return (
-		<div id="sidebar">
+		<div id="sidebar" data-testid="sidebar-test">
 			<h2>Cities App</h2>
 
 			<ul className="list-container">
@@ -61,3 +61,5 @@ export const Sidebar = ({ onFilterByCountry }: Props) => {
 		</div>
 	);
 };
+
+export default Sidebar
