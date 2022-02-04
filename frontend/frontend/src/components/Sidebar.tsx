@@ -16,7 +16,8 @@ export const Sidebar = ({ onFilterByCountry }: Props) => {
 			.then((data) => {
 				setCountries(data);
 				setLoading(false);
-			});
+			})
+			.catch((error) => console.log(error));
 	}, []);
 
 	const toggleAllCities = (e: string | null) => {
@@ -48,7 +49,7 @@ export const Sidebar = ({ onFilterByCountry }: Props) => {
 				))}
 			</ul>
 			{/* Dropdow for mobile */}
-			<select className="dropdown-menu	" id="countries" onChange={(event) => toggleAllCities(event.target.value)}>
+			<select className="dropdown-menu" id="countries" onChange={(event) => toggleAllCities(event.target.value)}>
 				<option value="all">All cities</option>
 				{countries.map(({ name, count }) => (
 					<option key={name} value={name}>
