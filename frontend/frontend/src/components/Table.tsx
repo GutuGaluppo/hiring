@@ -50,7 +50,7 @@ export const Table = ({ filters }: Props) => {
 							<button onClick={() => setPage(page - 1)} disabled={page === 0}>
 								&lt; Previous
 							</button>
-							<button onClick={() => setPage(page + 1)}>
+							<button onClick={() => setPage(page + 1)} disabled={data?.length === 0}>
 								Next &gt;
 							</button>
 						</td>
