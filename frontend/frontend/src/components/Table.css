@@ -32,10 +32,10 @@ tfoot > tr > td > button {
 	color: #333;
 	font-size: 1em;
 	cursor: pointer;
-	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2), inset -1px -2px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 }
 tfoot > tr > td > button:active {
-	box-shadow: inset -1px -2px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 tfoot > tr > td > button:disabled {
 	color: #ccc;
